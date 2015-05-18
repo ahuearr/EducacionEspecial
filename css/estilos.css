@@ -1,0 +1,87 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(../font/escolar1.ttf);
+}
+
+h1,
+div.texto {
+    font-family: myFirstFont;
+    color: red;
+    font-size: 100px;
+    text-align: center;
+}
+
+.input{
+    font-family: myFirstFont;
+    color: red !important;
+    font-size: 100px;
+}
+
+div.texto,
+img {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+div#content1,
+div#content2{
+	-moz-user-select: none;
+ 	-webkit-user-select: none;
+ 	user-select: none;
+}
+
+#div21,
+#div22,
+#div23{
+	width:200px;
+	height:150px;
+	padding:10px;
+	border:1px solid #aaaaaa;
+}
+#div31,
+#div32,
+#div33{
+	width:400px;
+	height:150px;
+	padding:10px;
+	border:1px solid #aaaaaa;
+}
+img.imagen {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	width:150px;
+	height:150px;
+}
+img.imagenOKO {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	width:100px;
+	height:75px;
+	visibility:hidden;
+}
+img.imagenFlecha {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	width:100px;
+	height:75px;
+}
+
+.center{
+	margin-left: auto;
+    margin-right: auto;
+}
+
+img.topright{
+	display:block;
+	float:right;
+	top: 50px;
+	margin-left:90%;
+}
+img.topleft{
+	display:block;
+	float:left;
+	top: 50px;
+}

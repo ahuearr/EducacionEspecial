@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="./css/estilos.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
+	<script src="./scripts/ee.js"></script>
+	
+</head>
+<body>
+
+<div data-role="page" id="Inicio">
+	 <div data-role="main" class="ui-content">
+		<img id="continuar0" class="imagenFlecha" src="./img/Continuar.png"></img>
+		<h1>Bienvenido a tu sistema de aprendizaje</h1>
+	</div>
+</div>
+
+<div data-role="page" id="Actividad1">
+	<div data-role="main" class="ui-content">
+		<img id="lectura" class="topright" src="./img/Lectura.png"></img>
+		<table id="tabla11" class="center">
+			<tr>
+				<td>
+					<img id="volver1" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+					<img id="continuar1" class="imagenFlecha" src="./img/Continuar.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="img11" class="imagen" src="./img/Perro.png">
+				</td>
+				<td>
+					<div id="texto11" class="texto">el perro</div>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<img id="img12" class="imagen" src="./img/Arbol.png">
+				</td>
+				<td>
+					<div id="texto12" class="texto">el árbol</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="img13" class="imagen" src="./img/Casa.png">
+				</td>
+				<td>
+					<div id="texto13" class="texto">la casa</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div data-role="page" id="Actividad2">
+	 <div id="content1" data-role="main" class="ui-content">
+		<table id="tabla21" class="center">
+			<tr>
+				<td>
+					<img id="volver2" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+				</td>
+				<td>
+					<img id="continuar2" class="imagenFlecha" style="display:none" src="./img/Continuar.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto21" class="texto">el perro</div>
+				</td>
+				<td>
+					<div id="div21" class="droppable" data-contenedor="Perro"></div>
+				</td>
+				<td>
+					<img id="ok21" class="imagenOKO" data-OKO="Perro" data-drop="" src="./img/KO.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto22" class="texto">el árbol</div>
+				</td>
+				<td>
+					<div id="div22" class="droppable" data-contenedor="Arbol"></div>
+				</td>
+				<td>
+					<img id="ok22" class="imagenOKO" data-OKO="Arbol" data-drop="" src="./img/KO.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto23" class="texto">la casa</div>
+				</td>
+				<td>
+					<div id="div23" class="droppable" data-contenedor="Casa"></div>
+				</td>
+				<td>
+					<img id="ok23" class="imagenOKO" data-OKO="Casa" data-drop="" src="./img/KO.png"></img>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<img id="img21" class="imagen draggable" data-contenido="Arbol" src="./img/Arbol.png">
+				</td>
+				<td>
+					<img id="img22" class="imagen draggable" data-contenido="Casa" src="./img/Casa.png">
+				</td>
+				<td>
+					<img id="img23" class="imagen draggable" data-contenido="Perro" src="./img/Perro.png">
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div data-role="page" id="Actividad3">
+	 <div id="content2" data-role="main" class="ui-content">
+		<table id="tabla31" class="center">
+			<tr>
+				<td>
+					<img id="volver3" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+				</td>
+				<td>
+					<img id="continuar3" class="imagenFlecha" style="display:none;" src="./img/Continuar.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="img31" class="imagen" src="./img/Arbol.png">
+				</td>
+				<td>
+					<img id="img32" class="imagen" src="./img/Casa.png">
+				</td>
+				<td>
+					<img id="img33" class="imagen" src="./img/Perro.png">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<div id="div31" class="droppable" data-contenedor="Arbol"></div>
+				</td>
+				<td>
+					<div id="div32" class="droppable" data-contenedor="Casa""></div>
+				</td>
+				<td>
+					<div id="div33" class="droppable" data-contenedor="Perro"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="ok31" class="imagenOKO" data-OKO="Arbol" src="./img/KO.png"></img>
+				</td>
+				<td>
+					<img id="ok32" class="imagenOKO" data-OKO="Perro" src="./img/KO.png"></img>
+				</td>
+				<td>
+					<img id="ok33" class="imagenOKO" data-OKO="Perro" src="./img/KO.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto31" class="texto draggable" data-contenido="Perro">el perro</div>
+				</td>
+				<td>
+					<div id="texto32" class="texto draggable" data-contenido="Arbol">el árbol</div>
+				</td>
+				<td>
+					<div id="texto33" class="texto draggable" data-contenido="Casa">la casa</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div data-role="page" id="Actividad4">
+	<div data-role="main" class="ui-content">
+		<img id="escritura" class="topright" src="./img/Escritura.png"></img>
+		<table id="tabla41" class="center">
+			<tr>
+				<td>
+					<img id="volver4" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+				</td>
+				<td>
+					<img id="continuar4" class="imagenFlecha" style="display:none;" src="./img/Continuar.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="img41" class="imagen" data-texto="el perro" src="./img/Perro.png">
+				</td>
+				<td>
+					<img id="img42" class="imagen" data-texto="el arbol" src="./img/Arbol.png">
+				</td>
+				<td>
+					<img id="img43" class="imagen" data-texto="la casa" src="./img/Casa.png">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<input class="input" type="text" id="text41">
+				</td>
+				<td>
+					<input class="input" type="text" id="text42">
+				</td>
+				<td>
+					<input class="input" type="text" id="text43">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto41" class="texto" style="display:none">el perro</div>
+				</td>
+				<td>
+					<div id="texto42" class="texto" style="display:none">el árbol</div>
+				</td>
+				<td>
+					<div id="texto43" class="texto" style="display:none">la casa</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="ver41" class="ver topleft imagenFlecha" src="./img/ver.png"></img>
+					<img id="ok41" class="imagenOKO" src="./img/KO.png"></img>
+				</td>
+				<td>
+					<img id="ver42" class="ver topleft imagenFlecha" src="./img/ver.png"></img>
+					<img id="ok42" class="imagenOKO" src="./img/KO.png"></img>
+				</td>
+				<td>
+					<img id="ver43" class="ver topleft imagenFlecha" src="./img/ver.png"></img>
+					<img id="ok43" class="imagenOKO" src="./img/KO.png"></img>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div data-role="page" id="Actividad5">
+	<div data-role="main" class="ui-content">
+		<img id="cuaderno" class="topright" src="./img/Cuaderno.png"></img>
+		<table id="tabla51" class="center">
+			<tr>
+				<td>
+					<img id="volver5" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+				</td>
+				<td>
+					<img id="continuar5" class="imagenFlecha" src="./img/Continuar.png"></img>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="texto51" class="texto">1</div>
+				</td>
+				<td>
+					<div id="texto52" class="texto">2</div>
+				</td>
+				<td>
+					<div id="texto53" class="texto">3</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="img51" class="imagen" src="./img/Perro.png">
+				</td>
+				<td>
+					<img id="img52" class="imagen" src="./img/Arbol.png">
+				</td>
+				<td>
+					<img id="img53" class="imagen" src="./img/Casa.png">
+				</td>
+			</tr>	
+		</table>
+	</div>
+</div>
+
+<div data-role="page" id="Fin">
+	 <div data-role="main" class="ui-content">
+	 	<table class="center">
+			<tr>
+				<td>
+					<img id="volver6" class="imagenFlecha" src="./img/Volver.png"></img>
+				</td>
+				<td>
+					<img id="finalizar" class="imagenFlecha" src="./img/Inicio.png"></img>
+				</td>
+			</tr>
+	 		<tr>
+	 			<td>
+					<img id="ok61" class="imagenOKO" src="./img/OK.png"></img>
+	 			</td>
+	 			<td>
+					<h1>Se acabo</h1>
+	 			</td>
+	 			<td>
+					<img id="ok63" class="imagenOKO" src="./img/OK.png"></img>
+	 			</td>
+	 		</tr>
+	 	</table>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>
