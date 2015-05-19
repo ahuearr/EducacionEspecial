@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="./css/estilos.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
+	<script src="./scripts/cargarImagen.js"></script>
+	<script src="./scripts/parse-1.4.2.js"></script>
+	
+</head>
+
+<body>
+	<div data-role="page" id="Inicio">
+		 <div data-role="main" class="ui-content">
+			<h1>Carga de imágenes</h1>
+			<h2>Ruta del fichero</h2>
+			<input type="file" id="fileselect"/>
+			<h2>Nombre de la imagen</h2>
+			<h3>Este texto se utilizará en la actividad de Escritura</h3>
+			<input type="text" id="imageName"/>
+			<input id="uploadbutton" type="button" value="Guardar imagen"/>
+			<h1 id="messageOK" style="display:none">Imagen subida correctamente</h1>
+			<h1 id="messageKO" style="display:none">No se ha subido la imagen</h1>
+		</div>
+	</div>
+</body>
+</html>
