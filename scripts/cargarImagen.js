@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //Init Parse SDK
-    Parse.initialize("4w29j63T1p9cQYHynHvsPWp13I8ZbCfBk3iDOHeO", "ABT00XroMbHJCyfaV4MCBmfK9W5sS25zPuqGWdZj");
+    Parse.initialize(APP_ID, JAVASCRIPT_KEY);
 
     //File Upload
     var file;
@@ -29,8 +29,8 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             beforeSend: function(request) {
-                request.setRequestHeader("X-Parse-Application-Id", '4w29j63T1p9cQYHynHvsPWp13I8ZbCfBk3iDOHeO');
-                request.setRequestHeader("X-Parse-REST-API-Key", 'I2XDWGYh0IW0Zwkve9irIVjRsHsu22Adl1ijChVV');
+                request.setRequestHeader("X-Parse-Application-Id", APP_ID);
+                request.setRequestHeader("X-Parse-REST-API-Key", REST_KEY);
                 request.setRequestHeader("Content-Type", file.type);
             },
             url: serverUrl,
@@ -49,8 +49,8 @@ $(document).ready(function() {
                     $.ajax({
                         type: "POST",
                         beforeSend: function(request) {
-                            request.setRequestHeader("X-Parse-Application-Id", '4w29j63T1p9cQYHynHvsPWp13I8ZbCfBk3iDOHeO');
-                            request.setRequestHeader("X-Parse-REST-API-Key", 'I2XDWGYh0IW0Zwkve9irIVjRsHsu22Adl1ijChVV');
+                            request.setRequestHeader("X-Parse-Application-Id", APP_ID);
+                            request.setRequestHeader("X-Parse-REST-API-Key", REST_KEY);
                             request.setRequestHeader("Content-Type", 'application/json');
                         },
                         url: classUrl,

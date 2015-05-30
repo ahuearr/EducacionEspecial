@@ -61,10 +61,10 @@ $(document).ready(function(){
 	  $('input[type=text]').on("keyup blur", function(event){
 		  var img = '#img'+$(this).attr('id').substring(4,6);
 		  var ok='#ok'+$(this).attr('id').substring(4,6);
-		  if($(ok).attr("src")!="./img/OK.png"){
+		  if($(ok).attr("src")!="../img/OK.png"){
 			  if($(this).val()==$(img).data('texto')){
 				  this.disabled=true;
-				  $(ok).attr("src", "./img/OK.png");
+				  $(ok).attr("src", "../img/OK.png");
 				  $(ok).css('visibility','visible');
 				  cont++;
 				  if(cont==3){
@@ -73,7 +73,7 @@ $(document).ready(function(){
 					  $(continuar).show();
 				  }
 			  }else{
-				  $(ok).attr("src", "./img/KO.png");
+				  $(ok).attr("src", "../img/KO.png");
 				  if(event.type=='blur')
 					  $(ok).css('visibility','visible');
 			  }
@@ -111,7 +111,7 @@ function handleDropEvent( event, ui ) {
 		  contenedor.droppable('disable');
 		  contenido.draggable('option','revert',false);
 		  var ok='#ok'+contenedor.attr('id').substring(3,5);
-		  $(ok).attr("src", "./img/OK.png");
+		  $(ok).attr("src", "../img/OK.png");
 		  $(ok).css('visibility','visible');
 		  $(ok).data('drop', '');
 		  cont++;
@@ -122,7 +122,7 @@ function handleDropEvent( event, ui ) {
 		  }
 	  } else {
 		  var ko='#ok'+contenedor.attr('id').substring(3,5);
-		  $(ko).attr("src", "./img/KO.png");
+		  $(ko).attr("src", "../img/KO.png");
 		  $(ko).css('visibility','visible');
 		  $(ko).data('drop', contenido.attr('id'));
 	  }

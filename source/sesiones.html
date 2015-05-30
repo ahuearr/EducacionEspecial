@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="../css/estilos.css" />
+	<link rel="stylesheet" href="../plugins/table/css/jquery.dataTables.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
+	<script src="../plugins/table/js/jquery.dataTables.js"></script>
+	<script src="../scripts/config.js"></script>
+	<script src="../scripts/sesiones.js"></script>
+	<script src="../scripts/parse-1.4.2.js"></script>
+	
+</head>
+<body>
+
+<div data-role="page" id="sesiones">
+	 <div data-role="main" class="ui-content">
+		<h1>Sesiones</h1>
+		<h2>Sesiones existentes</h2>
+		<table id="listasesiones">
+			<thead>
+				<tr>
+					<th colspan="3"></th>
+					<th>Actividad Lectura</th>
+					<th colspan="2">Actividad Relacion Imagen con Texto</th>
+					<th colspan="2">Actividad Relacion Texto con Imagen</th>
+					<th>Actividad Escritura</th>
+					<th>Actividad Escritura Cuaderno</th>
+				</tr>
+				<tr>
+					<th>Crear/Modificar sesiones</th>
+					<th>Descripcion</th>
+					<th>Imagenes</th>
+					<th>Posicion</th>
+					<th>Posicion texto</th>
+					<th>Posicion imagen</th>
+					<th>Posicion imagen</th>
+					<th>Posicion texto</th>
+					<th>Posicion</th>
+					<th>Posicion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<input id="nuevasesion" type="button" value="Crear" onclick="javascript:grabarSesion('NEW')"/>
+					</td>
+					<td>
+						<input type="text" id="descripcion_Nueva" maxlength=30/>
+					</td>
+					<td>
+						<select name="imagen1_Nueva" id="imagen1_Nueva" class="selectImagen">
+							<option value="0">Imagen1</option>
+						</select>
+						<select name="imagen2_Nueva" id="imagen2_Nueva" class="selectImagen">
+							<option value="0">Imagen2</option>
+						</select>
+						<select name="imagen3_Nueva" id="imagen3_Nueva" class="selectImagen">
+							<option value="0">Imagen3</option>
+						</select>
+					</td>
+					<td>
+						<select name="pos11_Nueva" id="pos11_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos12_Nueva" id="pos12_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos13_Nueva" id="pos13_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="posDrop21_Nueva" id="posDrop21_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrop22_Nueva" id="posDrop22_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrop23_Nueva" id="posDrop23_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="posDrag21_Nueva" id="posDrag21_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrag22_Nueva" id="posDrag22_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrag23_Nueva" id="posDrag23_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="posDrop31_Nueva" id="posDrop31_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrop32_Nueva" id="posDrop32_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrop33_Nueva" id="posDrop33_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="posDrag31_Nueva" id="posDrag31_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrag32_Nueva" id="posDrag32_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="posDrag33_Nueva" id="posDrag33_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="pos41_Nueva" id="pos41_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos42_Nueva" id="pos42_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos43_Nueva" id="pos43_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+					<td>
+						<select name="pos51_Nueva" id="pos51_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos52_Nueva" id="pos52_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<select name="pos53_Nueva" id="pos53_Nueva">
+							<option value="0">Posicion</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

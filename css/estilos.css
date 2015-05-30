@@ -85,3 +85,6 @@ img.topleft{
 	float:left;
 	top: 50px;
 }
+table thead td{
+	font-weight:bold;
+}
