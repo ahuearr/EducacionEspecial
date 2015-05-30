@@ -53,7 +53,7 @@ function recuperarSesiones(){
 
 function crearFilaSesion(object){
     var row = [];
-    row[0]='<input id="actualizasesion_"'+object.id+'" type="button" value="Actualizar" onclick="javascript:grabarSesion(\'UPD\')"/>';
+    row[0]='<input id="actualizasesion_"'+object.id+'" type="button" value="Actualizar" onclick="javascript:grabarSesion(\''+object.id+'\')"/>';
     row[1]='<input type="text" id="descripcion_'+object.id+'" value="'+object.get('description')+'" maxlength=30/>';
     row[2]='	<select name="imagen1_'+object.id+'" id="imagen1_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen1</option>';
@@ -103,19 +103,28 @@ function prepararDesplegables(){
     $('select').show();
 }
 
-function grabarSesion(accion){
+function grabarSesion(suffix){
 
-    if(accion=='NEW'){
-	var suffix="Nueva";
-    } else {
-	
-    }
-    
     if(!validarCampos(suffix))	return;
     
     var Sesion = Parse.Object.extend("Sesion");
-    var sesion = new Sesion();
+    if(suffix=='Nueva'){
+	    var sesion = new Sesion();
+	    guardarObjetoSesion(suffix, sesion);
+    } else{
+	var query = new Parse.Query(Sesion);
+	query.get(suffix, {
+	    success: function(sesion) {
+		    guardarObjetoSesion(suffix, sesion);
+		    console.log('Actualizando sesion:'+suffix);
+	    },
+	    error: function(object, error) {
+		    console.log('Error Actualizando sesion:'+suffix);
+	    }
+	  });    }
+}
 
+function guardarObjetoSesion(suffix,sesion){
     sesion.set("description", document.getElementById("descripcion_"+suffix).value);
     sesion.set("Image1Id", document.getElementById("imagen1_"+suffix).value);
     sesion.set("Image2Id", document.getElementById("imagen2_"+suffix).value);
@@ -256,6 +265,49 @@ function validarCampos(suffix){
 	alert('ERROR: Posicion vacía');
 	return false;
     }
+    if(document.getElementById("pos11_"+suffix).value==document.getElementById("pos12_"+suffix).value ||
+	    document.getElementById("pos12_"+suffix).value==document.getElementById("pos13_"+suffix).value ||
+	    document.getElementById("pos11_"+suffix).value==document.getElementById("pos13_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("posDrag21_"+suffix).value==document.getElementById("posDrag22_"+suffix).value ||
+	    document.getElementById("posDrag22_"+suffix).value==document.getElementById("posDrag23_"+suffix).value ||
+	    document.getElementById("posDrag21_"+suffix).value==document.getElementById("posDrag23_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("posDrop21_"+suffix).value==document.getElementById("posDrop22_"+suffix).value ||
+	    document.getElementById("posDrop22_"+suffix).value==document.getElementById("posDrop23_"+suffix).value ||
+	    document.getElementById("posDrop21_"+suffix).value==document.getElementById("posDrop23_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("posDrag31_"+suffix).value==document.getElementById("posDrag32_"+suffix).value ||
+	    document.getElementById("posDrag32_"+suffix).value==document.getElementById("posDrag33_"+suffix).value ||
+	    document.getElementById("posDrag31_"+suffix).value==document.getElementById("posDrag33_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("posDrop31_"+suffix).value==document.getElementById("posDrop32_"+suffix).value ||
+	    document.getElementById("posDrop32_"+suffix).value==document.getElementById("posDrop33_"+suffix).value ||
+	    document.getElementById("posDrop31_"+suffix).value==document.getElementById("posDrop33_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("pos41_"+suffix).value==document.getElementById("pos42_"+suffix).value ||
+	    document.getElementById("pos42_"+suffix).value==document.getElementById("pos43_"+suffix).value ||
+	    document.getElementById("pos41_"+suffix).value==document.getElementById("pos43_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+    if(document.getElementById("pos51_"+suffix).value==document.getElementById("pos52_"+suffix).value ||
+	    document.getElementById("pos52_"+suffix).value==document.getElementById("pos53_"+suffix).value ||
+	    document.getElementById("pos51_"+suffix).value==document.getElementById("pos53_"+suffix).value){
+	alert('ERROR: Posicion repetida');
+	return false;
+    }
+
     return true;
 }
 
