@@ -1,5 +1,8 @@
 var cont=0;
-
+var imagen1;
+var imagen2;
+var imagen3;
+var sesionCargada;
 $(init)
 
 function init() {
@@ -12,6 +15,12 @@ function init() {
 }
 
 $(document).ready(function(){
+    
+    Parse.initialize(APP_ID, JAVASCRIPT_KEY);
+    
+    var sesionId = getParameterByName('sesionId');
+    
+    cargarSesion(sesionId);
 	  $('#continuar0').click(function(){
 			 continuar('inicio'); 
 		  });
@@ -149,4 +158,86 @@ function continuar(opcion){
 	}
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
+function cargarSesion(sesionId){
+
+    var Sesion = Parse.Object.extend("Sesion");
+    var query = new Parse.Query(Sesion);
+    query.get(sesionId, {
+	  success: function(sesion) {
+	      sesionCargada=sesion;
+	      cargarImagen(sesion.get('Image1Id'), sesion.get('Image2Id'), sesion.get('Image3Id'));
+	  },
+	  error: function(object, error) {
+	  }
+	});
+}
+
+function cargarImagen(imagenId1, imagenId2, imagenId3){
+
+    var Imagen = Parse.Object.extend("Image");
+    var query = new Parse.Query(Imagen);
+    var imagenId;
+    var callback=false;
+    if(imagenId1!=null){
+	imagenId=imagenId1;
+	imagenId1=null;
+    } else if(imagenId2!=null){
+	imagenId=imagenId2;
+	imagenId2=null;
+    } else if(imagenId3!=null){
+	imagenId=imagenId3;
+	imagenId3=null;
+	callback=true;
+    }
+    query.get(imagenId, {
+	  success: function(imagen) {
+	      if(imagenId3==null)	imagen3=imagen;
+	      else if (imagenId2==null)	imagen2=imagen;
+	      else if (imagenId1==null)	imagen1=imagen;
+	      
+	      console.log(imagen);
+	      
+	      if(callback)	prepararFormulario();
+	      else		cargarImagen(imagenId1, imagenId2, imagenId3)
+	  },
+	  error: function(object, error) {
+	  }
+	});
+
+}
+
+function prepararFormulario(){
+    $('#texto11').html(obtenerImagenDePosicion('pos11').get('imageName'));
+    $('#texto12').html(obtenerImagenDePosicion('pos12').get('imageName'));
+    $('#texto13').html(obtenerImagenDePosicion('pos13').get('imageName'));
+    $('#texto21').html(obtenerImagenDePosicion('posDrop21').get('imageName'));
+    $('#texto22').html(obtenerImagenDePosicion('posDrop22').get('imageName'));
+    $('#texto23').html(obtenerImagenDePosicion('posDrop23').get('imageName'));
+    $('#texto31').html(obtenerImagenDePosicion('posDrag31').get('imageName'));
+    $('#texto32').html(obtenerImagenDePosicion('posDrag32').get('imageName'));
+    $('#texto33').html(obtenerImagenDePosicion('posDrag33').get('imageName'));
+    $('#img41').data('texto',obtenerImagenDePosicion('pos41').get('imageName'));
+    $('#img42').data('texto',obtenerImagenDePosicion('pos42').get('imageName'));
+    $('#img43').data('texto',obtenerImagenDePosicion('pos43').get('imageName'));
+    $('#texto41').html(obtenerImagenDePosicion('pos41').get('imageName'));
+    $('#texto42').html(obtenerImagenDePosicion('pos42').get('imageName'));
+    $('#texto43').html(obtenerImagenDePosicion('pos43').get('imageName'));
+}
+
+function obtenerImagenDePosicion(posicion){
+    switch(sesionCargada.get(posicion)){
+    case '1':
+	return imagen1;
+    case '2':
+	return imagen2;
+    case '3':
+	return imagen3;
+    }
+}
