@@ -5,6 +5,8 @@ $(document).ready(function(){
 
     Parse.initialize(APP_ID, JAVASCRIPT_KEY);
 
+    cargarEventos();
+
     recuperarListaImagenes();
     
     prepararDesplegables();
@@ -331,3 +333,8 @@ function irSesion(id){
     window.location.replace("./sesion.html?sesionId="+id);
 }
 
+function cargarEventos(){
+    $("#volver").click(function(){
+	       window.location.replace("./inicio.html");  
+	   });
+}

@@ -3,6 +3,7 @@ $(document).ready(function() {
     //Init Parse SDK
     Parse.initialize(APP_ID, JAVASCRIPT_KEY);
 
+    cargarEventos();
     //File Upload
     var file;
 
@@ -83,3 +84,9 @@ $(document).ready(function() {
         });
     });
 });
+
+function cargarEventos(){
+    $("#volver").click(function(){
+	       window.location.replace("./inicio.html");  
+	   });
+}

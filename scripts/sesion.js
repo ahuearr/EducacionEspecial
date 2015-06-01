@@ -20,88 +20,9 @@ $(document).ready(function(){
     
     var sesionId = getParameterByName('sesionId');
     
+    cargarEventos();
+    
     cargarSesion(sesionId);
-	  $('#continuar0').click(function(){
-			 continuar('inicio'); 
-		  });
-	  $('#volver1').click(function(){
-		  location.reload();
-		  continuar('finalizar'); 
-		  });
-	  $('#continuar1').click(function(){
-			 continuar('actividad1'); 
-		  });
-	  $('#volver2').click(function(){
-		  location.reload();
-		  continuar('inicio'); 
-		  });
-	  $('#continuar2').click(function(){
-			 continuar('actividad2'); 
-		  });
-	  $('#volver3').click(function(){
-		  location.reload();
-		  continuar('actividad1'); 
-		  });
-	  $('#continuar3').click(function(){
-			 continuar('actividad3'); 
-		  });
-	  $('#volver4').click(function(){
-		  location.reload();
-		  continuar('actividad2'); 
-		  });
-	  $('#continuar4').click(function(){
-			 continuar('actividad4'); 
-		  });
-	  $('#volver5').click(function(){
-		  location.reload();
-		  continuar('actividad3'); 
-		  });
-	  $('#continuar5').click(function(){
-			 continuar('actividad5'); 
-		  });
-	  $('#volver6').click(function(){
-		  location.reload();
-		  continuar('actividad4'); 
-		  });
-	  $('#finalizar').click(function(){
-			 continuar('finalizar'); 
-		  });
-	  
-	  $('input[type=text]').on("keyup blur", function(event){
-		  var img = '#img'+$(this).attr('id').substring(4,6);
-		  var ok='#ok'+$(this).attr('id').substring(4,6);
-		  if($(ok).attr("src")!="../img/OK.png"){
-			  if($(this).val()==$(img).data('texto')){
-				  this.disabled=true;
-				  $(ok).attr("src", "../img/OK.png");
-				  $(ok).css('visibility','visible');
-				  cont++;
-				  if(cont==3){
-					  cont=0;
-					  var continuar='#continuar'+$(this).attr('id').substring(4,5);
-					  $(continuar).show();
-				  }
-			  }else{
-				  $(ok).attr("src", "../img/KO.png");
-				  if(event.type=='blur')
-					  $(ok).css('visibility','visible');
-			  }
-		  }
-		  if($(this).val()==''){
-			  $(ok).css('visibility','hidden');
-		  }
-	  });
-	  
-	  $('.ver').click(function(){
-			var texto='#texto'+$(this).attr('id').substring(3,5);
-			var elementoActual = $(this);
-			elementoActual.hide();
-			$(texto).show();
-			setTimeout(function(){
-				$(texto).hide();
-				elementoActual.show();
-			}, 10000);
-	  });
 });
 
 function handleDropEvent( event, ui ) {
@@ -201,9 +122,6 @@ function cargarImagen(imagenId1, imagenId2, imagenId3){
 	      if(imagenId3==null)	imagen3=imagen;
 	      else if (imagenId2==null)	imagen2=imagen;
 	      else if (imagenId1==null)	imagen1=imagen;
-	      
-	      console.log(imagen);
-	      
 	      if(callback)	prepararFormulario();
 	      else		cargarImagen(imagenId1, imagenId2, imagenId3)
 	  },
@@ -273,4 +191,91 @@ function obtenerImagenDePosicion(posicion){
     case '3':
 	return imagen3;
     }
+}
+
+function cargarEventos(){
+    $("#volver").click(function(){
+	       window.location.replace("./gestionsesiones.html");  
+	   });
+    $('#continuar0').click(function(){
+        continuar('inicio'); 
+    	});
+    $('#volver1').click(function(){
+    	  location.reload();
+    	  continuar('finalizar'); 
+    	  });
+    $('#continuar1').click(function(){
+    		 continuar('actividad1'); 
+    	  });
+    $('#volver2').click(function(){
+    	  location.reload();
+    	  continuar('inicio'); 
+    	  });
+    $('#continuar2').click(function(){
+    		 continuar('actividad2'); 
+    	  });
+    $('#volver3').click(function(){
+    	  location.reload();
+    	  continuar('actividad1'); 
+    	  });
+    $('#continuar3').click(function(){
+    		 continuar('actividad3'); 
+    	  });
+    $('#volver4').click(function(){
+    	  location.reload();
+    	  continuar('actividad2'); 
+    	  });
+    $('#continuar4').click(function(){
+    		 continuar('actividad4'); 
+    	  });
+    $('#volver5').click(function(){
+    	  location.reload();
+    	  continuar('actividad3'); 
+    	  });
+    $('#continuar5').click(function(){
+    		 continuar('actividad5'); 
+    	  });
+    $('#volver6').click(function(){
+    	  location.reload();
+    	  continuar('actividad4'); 
+    	  });
+    $('#finalizar').click(function(){
+    		 continuar('finalizar'); 
+    	  });
+    
+    $('input[type=text]').on("keyup blur", function(event){
+    	  var img = '#img'+$(this).attr('id').substring(4,6);
+    	  var ok='#ok'+$(this).attr('id').substring(4,6);
+    	  if($(ok).attr("src")!="../img/OK.png"){
+    		  if($(this).val()==$(img).data('texto')){
+    			  this.disabled=true;
+    			  $(ok).attr("src", "../img/OK.png");
+    			  $(ok).css('visibility','visible');
+    			  cont++;
+    			  if(cont==3){
+    				  cont=0;
+    				  var continuar='#continuar'+$(this).attr('id').substring(4,5);
+    				  $(continuar).show();
+    			  }
+    		  }else{
+    			  $(ok).attr("src", "../img/KO.png");
+    			  if(event.type=='blur')
+    				  $(ok).css('visibility','visible');
+    		  }
+    	  }
+    	  if($(this).val()==''){
+    		  $(ok).css('visibility','hidden');
+    	  }
+    });
+    
+    $('.ver').click(function(){
+    		var texto='#texto'+$(this).attr('id').substring(3,5);
+    		var elementoActual = $(this);
+    		elementoActual.hide();
+    		$(texto).show();
+    		setTimeout(function(){
+    			$(texto).hide();
+    			elementoActual.show();
+    		}, 10000);
+    });
 }
