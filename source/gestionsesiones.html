@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
 	<script src="../plugins/table/js/jquery.dataTables.js"></script>
 	<script src="../scripts/config.js"></script>
-	<script src="../scripts/sesiones.js"></script>
+	<script src="../scripts/gestionsesiones.js"></script>
 	<script src="../scripts/parse-1.4.2.js"></script>
 	
 </head>
@@ -24,7 +24,7 @@
 		<table id="listasesiones">
 			<thead>
 				<tr>
-					<th colspan="3"></th>
+					<th colspan="4"></th>
 					<th>Actividad Lectura</th>
 					<th colspan="2">Actividad Relacion Imagen con Texto</th>
 					<th colspan="2">Actividad Relacion Texto con Imagen</th>
@@ -32,7 +32,8 @@
 					<th>Actividad Escritura Cuaderno</th>
 				</tr>
 				<tr>
-					<th>Crear/Modificar sesiones</th>
+					<th>Acceder sesion</th>
+					<th>Crear/Actualizar sesiones</th>
 					<th>Descripcion</th>
 					<th>Imagenes</th>
 					<th>Posicion</th>
@@ -46,6 +47,7 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td></td>
 					<td>
 						<input id="nuevasesion" type="button" value="Crear" onclick="javascript:grabarSesion('Nueva')"/>
 					</td>

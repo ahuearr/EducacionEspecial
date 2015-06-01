@@ -53,47 +53,48 @@ function recuperarSesiones(){
 
 function crearFilaSesion(object){
     var row = [];
-    row[0]='<input id="actualizasesion_"'+object.id+'" type="button" value="Actualizar" onclick="javascript:grabarSesion(\''+object.id+'\')"/>';
-    row[1]='<input type="text" id="descripcion_'+object.id+'" value="'+object.get('description')+'" maxlength=30/>';
-    row[2]='	<select name="imagen1_'+object.id+'" id="imagen1_'+object.id+'" class="selectImagen">'+
+    row[0]='<input id="irsesion_"'+object.id+'" type="button" value="Acceder" onclick="javascript:irSesion(\''+object.id+'\')"/>';
+    row[1]='<input id="actualizasesion_"'+object.id+'" type="button" value="Actualizar" onclick="javascript:grabarSesion(\''+object.id+'\')"/>';
+    row[2]='<input type="text" id="descripcion_'+object.id+'" value="'+object.get('description')+'" maxlength=30/>';
+    row[3]='	<select name="imagen1_'+object.id+'" id="imagen1_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen1</option>';
     for(var i=0;i<listaImagenes.length;i++){
-	row[2] += optionImageHTML(listaImagenes[i], object.get('Image1Id'));
+	row[3] += optionImageHTML(listaImagenes[i], object.get('Image1Id'));
     }
-    row[2] +=
+    row[3] +=
     '	</select>'+
     '	<select name="imagen2_'+object.id+'" id="imagen2_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen2</option>';
     for(var i=0;i<listaImagenes.length;i++){
-	row[2] += optionImageHTML(listaImagenes[i], object.get('Image2Id'));
+	row[3] += optionImageHTML(listaImagenes[i], object.get('Image2Id'));
     }
-    row[2] +=
+    row[3] +=
     '	</select>'+
     '	<select name="imagen3_'+object.id+'" id="imagen3_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen3</option>';
     for(var i=0;i<listaImagenes.length;i++){
-	row[2] += optionImageHTML(listaImagenes[i], object.get('Image3Id'));
+	row[3] += optionImageHTML(listaImagenes[i], object.get('Image3Id'));
     }
-    row[2] +='	</select>';
-    row[3]=selectPositionHTML('pos11_'+object.id, object.get('pos11'))+
+    row[3] +='	</select>';
+    row[4]=selectPositionHTML('pos11_'+object.id, object.get('pos11'))+
     selectPositionHTML('pos12_'+object.id, object.get('pos12'))+
     selectPositionHTML('pos13_'+object.id, object.get('pos13'));
-    row[4]=selectPositionHTML('posDrop21_'+object.id, object.get('posDrop21'))+
+    row[5]=selectPositionHTML('posDrop21_'+object.id, object.get('posDrop21'))+
     selectPositionHTML('posDrop22_'+object.id, object.get('posDrop22'))+
     selectPositionHTML('posDrop23_'+object.id, object.get('posDrop23'));
-    row[5]=selectPositionHTML('posDrag21_'+object.id, object.get('posDrag21'))+
+    row[6]=selectPositionHTML('posDrag21_'+object.id, object.get('posDrag21'))+
     selectPositionHTML('posDrag22_'+object.id, object.get('posDrag22'))+
     selectPositionHTML('posDrag23_'+object.id, object.get('posDrag23'));
-    row[6]=selectPositionHTML('posDrop31_'+object.id, object.get('posDrop31'))+
+    row[7]=selectPositionHTML('posDrop31_'+object.id, object.get('posDrop31'))+
     selectPositionHTML('posDrop32_'+object.id, object.get('posDrop32'))+
     selectPositionHTML('posDrop33_'+object.id, object.get('posDrop33'));
-    row[7]=selectPositionHTML('posDrag31_'+object.id, object.get('posDrag31'))+
+    row[8]=selectPositionHTML('posDrag31_'+object.id, object.get('posDrag31'))+
     selectPositionHTML('posDrag32_'+object.id, object.get('posDrag32'))+
     selectPositionHTML('posDrag33_'+object.id, object.get('posDrag33'));
-    row[8]=selectPositionHTML('pos41_'+object.id, object.get('pos41'))+
+    row[9]=selectPositionHTML('pos41_'+object.id, object.get('pos41'))+
     selectPositionHTML('pos42_'+object.id, object.get('pos42'))+
     selectPositionHTML('pos43_'+object.id, object.get('pos43'));
-    row[9]=selectPositionHTML('pos51_'+object.id, object.get('pos51'))+
+    row[10]=selectPositionHTML('pos51_'+object.id, object.get('pos51'))+
     selectPositionHTML('pos52_'+object.id, object.get('pos52'))+
     selectPositionHTML('pos53_'+object.id, object.get('pos53'));
     return row;
@@ -324,5 +325,9 @@ function selectPositionHTML(id, selectedPos){
     '		<option value="3"'+((selectedPos=='3') ? ' selected' : '' )+'>3</option>'+
     '	</select>'
     return html;
+}
+
+function irSesion(id){
+    window.location.replace("./sesion.html?sesionId="+id);
 }
 
