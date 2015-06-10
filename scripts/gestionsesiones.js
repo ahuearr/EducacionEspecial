@@ -58,21 +58,21 @@ function crearFilaSesion(object){
     row[0]='<input id="irsesion_"'+object.id+'" type="button" value="Acceder" onclick="javascript:irSesion(\''+object.id+'\')"/>';
     row[1]='<input id="actualizasesion_"'+object.id+'" type="button" value="Actualizar" onclick="javascript:grabarSesion(\''+object.id+'\')"/>';
     row[2]='<input type="text" id="descripcion_'+object.id+'" value="'+object.get('description')+'" maxlength=30/>';
-    row[3]='	<select name="imagen1_'+object.id+'" id="imagen1_'+object.id+'" class="selectImagen">'+
+    row[3]='	<label style="display:inline">1-</label><select name="imagen1_'+object.id+'" id="imagen1_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen1</option>';
     for(var i=0;i<listaImagenes.length;i++){
 	row[3] += optionImageHTML(listaImagenes[i], object.get('Image1Id'));
     }
     row[3] +=
     '	</select>'+
-    '	<select name="imagen2_'+object.id+'" id="imagen2_'+object.id+'" class="selectImagen">'+
+    '	<label style="display:inline">2-</label><select name="imagen2_'+object.id+'" id="imagen2_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen2</option>';
     for(var i=0;i<listaImagenes.length;i++){
 	row[3] += optionImageHTML(listaImagenes[i], object.get('Image2Id'));
     }
     row[3] +=
     '	</select>'+
-    '	<select name="imagen3_'+object.id+'" id="imagen3_'+object.id+'" class="selectImagen">'+
+    '	<label style="display:inline">3-</label><select name="imagen3_'+object.id+'" id="imagen3_'+object.id+'" class="selectImagen">'+
     '		<option value="0">Imagen3</option>';
     for(var i=0;i<listaImagenes.length;i++){
 	row[3] += optionImageHTML(listaImagenes[i], object.get('Image3Id'));

@@ -88,3 +88,6 @@ img.topleft{
 table thead td{
 	font-weight:bold;
 }
+.ui-content{
+	overflow:scroll;
+}
